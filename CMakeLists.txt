@@ -18,4 +18,11 @@ foreach(sourcefile ${HiHoAPPS})
     add_executable(${appname} ${sourcefile})
 endforeach()
 
+file(GLOB utilsAPPS Utils/*.cpp)
+foreach(sourcefile ${utilsAPPS})
+    STRING( REGEX REPLACE ".*/(.*).cpp$" "Utils-\\1" appname ${sourcefile})
+    message(Utils-/${appname})
+    add_executable(${appname} ${sourcefile})
+endforeach()
+
 add_executable(main main.cpp)
