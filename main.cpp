@@ -5,11 +5,7 @@
 #include <map>
 
 using namespace std;
-struct Node{};
 
 int main(){
-    map<char,Node*> tmap;
-    tmap['a'] = new Node();
-    auto a=tmap['b'];
-    cout<<tmap['a']<<","<<tmap['b']<<endl;
+    cout<<((4>>1)|1)<<endl;
 }
