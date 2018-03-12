@@ -69,6 +69,7 @@ bool cmp_1(int a, int b){
     return a<b;
 }
 
+
 //Wrong Answer了。。。
 int sort_solve(){
     for(int i=0; i<N; i++){
@@ -84,40 +85,29 @@ int sort_solve(){
     //挑选M/2对
     int i_2 = 0,i_5 = 0;
     int total_2 = 0, total_5 = 0;
-    int i = 1;
-    for(int i=0; i<M/2; i++){
+    for(int i=0; i<M; i++){
         while(used[resort_2[i_2]]){
             i_2++;
         }
-        used[resort_2[i_2]] = true;
-        total_2 += factors_2[resort_2[i_2]];
-        total_5 += factors_5[resort_2[i_2]];
-        while(used[resort_5[i_5]]){
-            i_5++;
-        }
-        used[resort_5[i_5]] = true;
-        total_5 += factors_5[resort_5[i_5]];
-        total_2 += factors_2[resort_5[i_5]];
-    }
-    if(M%2==0){
-        return min(total_2, total_5);
-    }else{
-        //奇数的时候在两个最前面选择一个使min（X,Y）最大的
-        while(used[resort_2[i_2]]){
-            i_2++;
-        }
-        used[resort_2[i_2]] = true;
         int total_2_2 = total_2 + factors_2[resort_2[i_2]];
         int total_2_5 = total_5 + factors_5[resort_2[i_2]];
         while(used[resort_5[i_5]]){
             i_5++;
         }
-        used[resort_5[i_5]] = true;
         int total_5_5 = total_5 + factors_5[resort_5[i_5]];
         int total_5_2 = total_2 + factors_2[resort_5[i_5]];
-        return max(min(total_2_2, total_2_5), min(total_5_2, total_5_5));
-    }
 
+        if(min(total_2_2, total_2_5) > min(total_5_2, total_5_5)){
+            used[resort_2[i_2]] = true;
+            total_2 = total_2_2;
+            total_5 = total_2_5;
+        }else{
+            used[resort_5[i_5]] = true;
+            total_2 = total_5_2;
+            total_5 = total_5_5;
+        }
+    }
+    return min(total_2, total_5);
 }
 
 int main(){
