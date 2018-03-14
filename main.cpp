@@ -7,5 +7,5 @@
 using namespace std;
 
 int main(){
-    cout<<((4>>1)|1)<<endl;
+    cout<<(7<<1|1)<<endl;
 }
