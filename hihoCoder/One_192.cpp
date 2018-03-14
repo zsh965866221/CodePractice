@@ -2,6 +2,10 @@
 // Created by zsh_o on 2018/3/6.
 //
 
+/*
+ * 这个代码写的有点复杂，其实解法可以很简单
+ * */
+
 #include <iostream>
 #include <map>
 
@@ -84,4 +88,35 @@ int main(){
 
     cin.ignore();
     cin.get();
+}
+
+void solve_simple(){
+    char table[25];
+    bool used[26];
+    used['J'-'A'] = true;
+    string s;
+    cin>>s;
+    int k = 0;
+    for(int i=0; i<s.size(); i++){
+        char c = s[i];
+        c = c=='J'? 'I':c;
+        if(!used[c-'A']){
+            table[k] = c;
+            used[c] = true;
+            k++;
+        }
+    }
+    for(char c='A'; c<='Z'; c++){
+        if(!used[c-'A']){
+            table[k] = c;
+            used[c] = true;
+            k++;
+        }
+    }
+    for(int i=0; i<25; i++){
+        cout<<table[i]<<' ';
+        if(i%5==0){
+            cout<<endl;
+        }
+    }
 }
