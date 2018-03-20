@@ -6,16 +6,11 @@
 #include <cmath>
 
 using namespace std;
-int log2(int x){
-    int n = 0;
-    while((1<<n)<=x){
-        n++;
-    }
-    return n-1;
-}
+
+
+typedef char Nname[40];
+
 int main(){
-    int k = 1e6+1;
-    int a = log2(k);
-    cout<<k<<endl;
-    cout<<a<<endl;
+    Nname names[10];
+    cout<<sizeof(names)<<endl;
 }

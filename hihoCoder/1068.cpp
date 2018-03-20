@@ -1,9 +1,10 @@
 //
-// Created by zsh96 on 2018/3/19.
+// Created by zsh_o on 2018/3/19.
 //
 
 /*
  * RMQ DP 二分
+ * https://www.zybuluo.com/zsh-o/note/1079721
  * */
 
 #include <iostream>
