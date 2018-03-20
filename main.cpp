@@ -3,9 +3,19 @@
 //
 #include <iostream>
 #include <map>
+#include <cmath>
 
 using namespace std;
-
+int log2(int x){
+    int n = 0;
+    while((1<<n)<=x){
+        n++;
+    }
+    return n-1;
+}
 int main(){
-    cout<<(7<<1|1)<<endl;
+    int k = 1e6+1;
+    int a = log2(k);
+    cout<<k<<endl;
+    cout<<a<<endl;
 }
