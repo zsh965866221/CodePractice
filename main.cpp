@@ -2,15 +2,30 @@
 // Created by zsh_o on 2018/3/2.
 //
 #include <iostream>
-#include <map>
-#include <cmath>
 
 using namespace std;
 
-
-typedef char Nname[40];
+int test(int **a, int **b){
+    int *t = *a;
+    cout<<"ex "<<t<<' '<<*a<<endl;
+    *a = *b;
+    cout<<"ex "<<*b<<' '<<*a<<endl;
+    cout<<"ex "<<t<<' '<<*a<<endl;
+    *b = t;
+    return **a + **b;
+}
+int test(int &a, int &b){
+    int *t = &a;
+    cout<<"ex"<<t<<' '<<a<<endl;
+    a = b;
+    cout<<"ex"<<b<<' '<<a<<endl;
+    b = *t;
+    return a + b;
+}
 
 int main(){
-    Nname names[10];
-    cout<<sizeof(names)<<endl;
+    int *a = new int(1);
+    int *b = new int(2);
+    cout<<test(&a, &b)<<endl;
+    cout<<*a<<" "<<*b<<endl;
 }
