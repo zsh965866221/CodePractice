@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.8)
-project(CodePractice)
+project(Computer_Algorithms)
 
 set(CMAKE_CXX_STANDARD 11)
 
 set_target_properties(${TARGET_NAME} PROPERTIES DEBUG_POSTFIX "_d")
 set_target_properties(${TARGET_NAME} PROPERTIES RELEASE_POSTFIX "_r")
 
-SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/out)
 
 ## 保留main文件，用以临时测试
 add_executable(main main.cpp)
