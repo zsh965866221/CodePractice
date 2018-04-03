@@ -16,14 +16,6 @@ int minLog_2(int value){
 
 
 int main(){
-    int value;
-    while(cin>>value){
-        int sum = 0;
-        while(sum<value){
-            int sub = value - sum;
-            sub = minLog_2(sub);
-            cout<<sub<<endl;
-            sum += sub;
-        }
-    }
+    int k = 7465536938;
+    cout<<k;
 }
