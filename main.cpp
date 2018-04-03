@@ -5,17 +5,25 @@
 
 using namespace std;
 
-int test(int &a, int &b){
-    a = a + b;
-    b = a - b;
-    a = a - b;
-    return a + b;
+
+int minLog_2(int value){
+    int k = 0;
+    while((value>>k)>1){
+        k++;
+    }
+    return 1<<k;
 }
 
 
 int main(){
-    int a = 1;
-    int b = 2;
-    cout<<test(a, b)<<endl;
-    cout<<a<<" "<<b<<endl;
+    int value;
+    while(cin>>value){
+        int sum = 0;
+        while(sum<value){
+            int sub = value - sum;
+            sub = minLog_2(sub);
+            cout<<sub<<endl;
+            sum += sub;
+        }
+    }
 }

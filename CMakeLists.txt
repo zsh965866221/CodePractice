@@ -43,6 +43,12 @@ foreach(sourcefile ${acmcoderAPPS})
     message(Utils-/${appname})
     add_executable(${appname} ${sourcefile})
 endforeach()
+file(GLOB LiAPPS ${OJsDir}/Li/*.cpp)
+foreach(sourcefile ${LiAPPS})
+    STRING( REGEX REPLACE ".*/(.*).cpp$" "ACMCoder-\\1" appname ${sourcefile})
+    message(Utils-/${appname})
+    add_executable(${appname} ${sourcefile})
+endforeach()
 
 ## for Introduction to Algorithms
 set(ItODir Introduction-to-Algorithms)
