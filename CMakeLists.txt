@@ -52,3 +52,9 @@ endforeach()
 
 ## for Introduction to Algorithms
 set(ItODir Introduction-to-Algorithms)
+file(GLOB DPAPPS ${ItODir}/15-DP/*.cpp)
+foreach(sourcefile ${DPAPPS})
+    STRING( REGEX REPLACE ".*/(.*).cpp$" "ItO-15-DP-\\1" appname ${sourcefile})
+    message(Utils-/${appname})
+    add_executable(${appname} ${sourcefile} ${ItODir}/common.h)
+endforeach()

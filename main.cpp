@@ -4,18 +4,8 @@
 #include <iostream>
 
 using namespace std;
-
-
-int minLog_2(int value){
-    int k = 0;
-    while((value>>k)>1){
-        k++;
-    }
-    return 1<<k;
-}
-
-
 int main(){
-    int k = 7465536938;
-    cout<<k;
+    int *A = new int[100];
+    A[1] = 10;
+    cout<<A[1]<<endl;
 }
