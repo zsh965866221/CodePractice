@@ -49,6 +49,12 @@ foreach(sourcefile ${LiAPPS})
     message(Utils-/${appname})
     add_executable(${appname} ${sourcefile})
 endforeach()
+file(GLOB NowAPPS ${OJsDir}/NowCoder/*.cpp)
+foreach(sourcefile ${NowAPPS})
+    STRING( REGEX REPLACE ".*/(.*).cpp$" "NowCoder-\\1" appname ${sourcefile})
+    message(Utils-/${appname})
+    add_executable(${appname} ${sourcefile})
+endforeach()
 
 ## for Introduction to Algorithms
 set(ItODir Introduction-to-Algorithms)
