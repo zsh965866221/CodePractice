@@ -2,62 +2,35 @@
 // Created by zsh_o on 2018/4/9.
 //
 
+/**
+ * 题目大意是，一个串删掉若干个字符之后变成回文串，问，一共有多少种删法，空串不是回文串，相同删除顺序的算是一种
+ * */
+
 #include <iostream>
 #include <cstring>
 
 using namespace std;
 
-const int MAXSIZE = 50+1;
-int N;
-int counts[MAXSIZE];
-int used[MAXSIZE];
+const int MAXSIZE = 50+5;
 string S;
-bool isH(){
-    int i = 0;
-    int j = N-1;
-    while(i<j){
-        if(used[i]!=-1){
-            i++;
-            continue;
-        }
-        if(used[j]!=-1){
-            j--;
-            continue;
-        }
-        if(S[i]==S[j]){
-            i++;
-            j--;
-        }else{
-            return false;
-        }
-    }
-    return true;
-}
-
-int search(int d){
-    if(d==1){
-        return 1;
-    }
-    int t = 0;
-    if(isH()){
-        t++;
-    }
-    char pre = '~';
-    for(int i=0; i<N; i++){
-        if(used[i]!=-1 || S[i]==pre)
-            continue;
-        pre = S[i];
-        used[i] = 1;
-        t += search(d-1);
-        used[i] = -1;
-    }
-    return t;
-}
-
+int N;
+typedef long long ll;
+ll F[MAXSIZE][MAXSIZE];
 int main(){
     getline(cin, S);
     N = S.size();
-    memset(used, 0xff, sizeof(used));
-    cout<<search(N)<<endl;
+    memset(F, 0x00, sizeof(F));
+    for(int i=1; i<=N; i++){
+        for(int l=0; l+i-1<N; i++){
+            int r = l + i - 1;
+            F[l][r] += F[l+1][r];
+            F[l][r] += F[l][r-1];
+            if(S[l]==S[r])
+                F[l][r] += 1;
+            else
+                F[l][r] -= F[l+1][r-1];
+        }
+    }
+    cout<<F[0][N-1]<<endl;
     cin.get();
 }
