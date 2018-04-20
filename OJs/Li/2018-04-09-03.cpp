@@ -19,7 +19,6 @@ int main(){
     for(int i=1; i<K; i++){
         for(int x=0; x<=9; x++){
             for(int y=0; y<=9; y++){
-                F[i][x][y];
                 if(x-2>=0 && y-1>=0){
                     F[i][x][y] += F[i-1][x-2][y-1];
                 }
