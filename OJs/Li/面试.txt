@@ -1,0 +1,27 @@
+QuestionTable[userNumber][LevelNumber]
+TestTable[QuestionNumber]['level','NumberCorrect','NumberIncorrect']
+foreach user in Users:
+	currectLevel = 1
+	currectCorrect = 0
+	currectError = 0
+	foreach question in detail:
+		if question.level < currectLevel:
+			continue
+		TestTable[question.id]['level'] = question.level
+		if question.correct is false:
+			if currectError<3:
+				currectError++
+				TestTable[question.id]['NumberInCorrect']++
+			else:
+				break
+		else:
+			if currectCorrect<3:
+				currectCorrect++
+				TestTable[question.id]['NumberCorrect']++
+			elseif currectCorrect==3:
+				continue
+			else:
+				currectLevel++
+				currectCorrect=0
+				currectError=0
+		QuestionTable[question.id][question.level]++

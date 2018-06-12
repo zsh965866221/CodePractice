@@ -2,6 +2,8 @@
 // Created by zsh96 on 2018/4/20.
 //
 
+// 思路，统计出所有gcd的个数
+
 #include <iostream>
 using namespace std;
 
