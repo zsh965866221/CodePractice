@@ -1,6 +1,7 @@
 /**
  * Created by zsh_o on 2018/6/12.
  *
+ * N个整数求最大的k个数
  * 10 3
  * 25 36 4 55 71 18 0 71 89 65
  * */
@@ -60,7 +61,8 @@ void alg2(){
     cout<<endl;
 }
 void alg3(){
-    int Scores[100+1];
+    const int MAXNUM = 100;
+    int Scores[MAXNUM+1];
     memset(Scores, 0x00, sizeof(Scores));
     for(int i=0; i<N; i++){
         Scores[A[i]]++;
