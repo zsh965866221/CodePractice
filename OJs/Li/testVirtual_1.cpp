@@ -37,6 +37,9 @@ public:
     virtual void run1(){
         cout<<"C11-1"<<endl;
     }
+    void runT(){
+        cout<<"C11:T "<<a<<endl;
+    }
 
 private:
     int a;
@@ -50,6 +53,12 @@ public:
     virtual void run(){
         cout<<"C2:"<<ca<<endl;
     }
+    void run1(){
+        cout<<"C2-1"<<endl;
+    }
+    void runQ(){
+        cout<<"C2-T"<<ca<<endl;
+    }
 private:
     int ca;
 };
@@ -59,9 +68,14 @@ int main(){
     c11->run1();
     C12 *c12 = (C12*)c11;
     c12->run();
-    c11->run1();
+    c12->run1();
+    // c12->run2(); // ¶Î´íÎó
+    cout<<"----------"<<endl;
     C2 *tc2 = (C2 *)c11;
     tc2->run();
+    tc2->runQ();
+    tc2->run1();
+    // tc2->run2(); // ¶Î´íÎó
     c11 = (C11*) new C2(1, 2, 3);
     c11->run();
     c11->run1();
@@ -80,5 +94,4 @@ int main(){
 //    C2 *tc2 = (C2 *)c12;
 //    tc2->run();
 //    //----------
-    cin.get();
 }
